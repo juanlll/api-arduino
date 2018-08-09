@@ -31,7 +31,7 @@ Route::get('rec',function(Request $request){
 	$record->humidity = $request->input('humidity');
 	$record->co2 = rand(10, 90);
 	$record->save();
-	return $record->created_at; 
+	return "correcto";
 });
 
 Route::get('records',function(){
