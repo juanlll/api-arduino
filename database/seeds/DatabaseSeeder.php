@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     		 DB::table('records')->insert([
 
          	'temp'=>rand(28, 40),
-         	'humidity'=>rand(28, 100),
+         	'humidity'=>rand(31, 70),
          	'co2'=>rand(10, 18),                              //1533747980
          	'created_at'=>date('Y-m-d H:i:s',mt_rand(1522602380,1533747980)),
          	'updated_at'=>date('Y-m-d H:i:s',mt_rand(1522602380,1533747980)),
