@@ -27,5 +27,5 @@ Route::post('login','AuthenticateController@authenticate');
 
 Route::get('records',function(){
 	$records = App\Record::all();
-	return json_encode(['records'=>$records,'count'=>$records->count()],'average_temp'=>$records->->max('temp'));
+	return json_encode(['records'=>$records,'count'=>$records->count()],'average_temp'=>$records->max('temp'));
 });
