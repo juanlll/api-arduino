@@ -26,7 +26,7 @@ Route::middleware(['jwt.auth'])->group(function(){
 Route::post('login','AuthenticateController@authenticate');
 
 Route::get('records',function(){
-	$records = App\Record::orderBy('created_at', 'desc');
+	$records = App\Record::orderBy('created_at', 'DESC')->get();
 	return json_encode([
 		'records'=>$records,//ARRAY DE REGISTROS
 		'count'=>$records->count(),// CANTIDAD DE REGISTROS
