@@ -25,6 +25,15 @@ Route::middleware(['jwt.auth'])->group(function(){
 
 Route::post('login','AuthenticateController@authenticate');
 
+Route::get('rec',function(){
+	$record = new  App\Record;
+	$record->temp = $request->input('temp');
+	$record->humidity = $request->input('humidity');
+	$record->co2 = $request->input('co2');
+	$record->save();
+	return "correcto"; 
+});
+
 Route::get('records',function(){
 	$records = App\Record::orderBy('created_at', 'ASC')->get();
 	return json_encode([
