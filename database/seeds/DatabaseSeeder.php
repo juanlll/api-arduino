@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
      
-    	for ($i=0; $i < 100; $i++) { 
+    	for ($i=0; $i < 10000; $i++) { 
     		 DB::table('records')->insert([
 
          	'temp'=>rand(28, 40),
