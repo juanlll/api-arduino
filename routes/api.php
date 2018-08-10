@@ -36,8 +36,9 @@ Route::get('rec',function(Request $request){
 
 Route::get('records',function(){
 	$records = App\Record::orderBy('created_at', 'DESC')->get();
+	$records_limit = App\Record::orderBy('created_at', 'DESC')->limit(5)->get();
 	return json_encode([
-		'records'=>$records,//ARRAY DE REGISTROS
+		'records'=>$records_limit,//ARRAY DE REGISTROS
 		'count'=>$records->count(),// CANTIDAD DE REGISTROS
 		
 		'max_temp'=>$records->max('temp'),//MAX PROMEDIO
