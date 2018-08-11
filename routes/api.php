@@ -66,6 +66,6 @@ Route::get('records',function(){
 		'average_humidity'=>($records->sum('humidity')/$records->count()),// PROMEDIO DE HUMEDAD
 		'average_co2'=>($records->sum('co2')/$records->count()),// PROMEDIO DE CO2
 		'variance'=>$vari,
-		'deviation'=>$sq
+		'deviation'=>$sum2
 	]);
 });
