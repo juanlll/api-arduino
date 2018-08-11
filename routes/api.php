@@ -38,8 +38,9 @@ Route::get('rec',function(Request $request){
 Route::get('records',function(){
 	$records = App\Record::orderBy('created_at', 'DESC')->get();
 	$records_limit = App\Record::orderBy('created_at', 'DESC')->limit(100)->get();
-	$array = DB::table('records')->select('temp')->get();
-	
+	// $array = DB::table('records')->select('temp')->get();
+	$array = {12,32,21,54,32,43,64,1,34,54,23,12,34,56,78,43,23,1,23,45};
+	$estandar = float stats_absolute_deviation ( $array  );
 	return json_encode([
 		'records'=>$records_limit,//ARRAY DE REGISTROS
 		'count'=>$records->count(),// CANTIDAD DE REGISTROS
@@ -56,6 +57,6 @@ Route::get('records',function(){
 		'average_temp'=>($records->sum('temp')/$records->count()),//PROMEDIO DE TEMPERATURA
 		'average_humidity'=>($records->sum('humidity')/$records->count()),// PROMEDIO DE HUMEDAD
 		'average_co2'=>($records->sum('co2')/$records->count()),// PROMEDIO DE CO2
-		'estandar'=>$array->toArray()
+		'estandar'=>$estandar
 	]);
 });
