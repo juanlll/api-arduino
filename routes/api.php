@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,17 +37,6 @@ Route::get('rec',function(Request $request){
 Route::get('records',function(){
 	$records = App\Record::orderBy('created_at', 'DESC')->get();
 	$records_limit = App\Record::orderBy('created_at', 'DESC')->limit(100)->get();
-	$array = DB::table('records')->select('temp')->get();
-	
-	$media = $records->sum('humidity')/$records->count();
-	$sum2=0;
-	for($i=0;$i<$records->count();$i++){
-			$sum2+=($array[$i]-$media)*($array[$i]-$media);
-	}
-	
-	$vari = $sum2/$records->count();
-	$sq = sqrt($vari);
-
 	return json_encode([
 		'records'=>$records_limit,//ARRAY DE REGISTROS
 		'count'=>$records->count(),// CANTIDAD DE REGISTROS
@@ -65,7 +53,5 @@ Route::get('records',function(){
 		'average_temp'=>($records->sum('temp')/$records->count()),//PROMEDIO DE TEMPERATURA
 		'average_humidity'=>($records->sum('humidity')/$records->count()),// PROMEDIO DE HUMEDAD
 		'average_co2'=>($records->sum('co2')/$records->count()),// PROMEDIO DE CO2
-		'variance'=>$vari,
-		'deviation'=>$sum2
 	]);
 });
