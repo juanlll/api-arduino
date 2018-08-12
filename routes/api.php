@@ -25,7 +25,7 @@ Route::middleware(['jwt.auth'])->group(function(){
 
 Route::post('login','AuthenticateController@authenticate');
   
-Route::get('rec',function(Request $request){
+Route::post('rec',function(Request $request){
 	$record = new  App\Record;
 	$record->temp = $request->input('temp');
 	$record->humidity = $request->input('humidity');
