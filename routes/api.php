@@ -29,7 +29,7 @@ Route::post('rec',function(Request $request){
 	$record = new  App\Record;
 	$record->temp = $request->input('temp');
 	$record->humidity = $request->input('humidity');
-	$record->co2 = rand(10, 90);
+	$record->co2 = $request->input('co2');
 	$record->save();
 	return "correcto";
 });
