@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 
          	'temp'=>rand(28, 40),
          	'humidity'=>rand(31, 70),
-         	'co2'=>rand(20, 2000),                              //1533747980
+         	'co2'=>rand(20, 700),                              //1533747980
          	'created_at'=>date('Y-m-d H:i:s',mt_rand(1522602380,1533747980)),
          	'updated_at'=>date('Y-m-d H:i:s',mt_rand(1522602380,1533747980)),
 
